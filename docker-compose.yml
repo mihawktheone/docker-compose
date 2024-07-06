@@ -1,0 +1,15 @@
+services:
+  mywebb:
+    build: ./mywebb
+    ports:
+      - 8000:80
+  mywebv:
+    image: nginx:alpine-slim
+    volumes:
+      - ./mywebv/myweb/index.html:/usr/share/nginx/html/index.html
+      - ./mywebv/myweb/images:/usr/share/nginx/html/images
+      - ./mywebv/myweb/css:/usr/share/nginx/html/css
+    ports:
+      -  80:80
+
+
